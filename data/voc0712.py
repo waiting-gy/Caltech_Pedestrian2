@@ -26,7 +26,7 @@ VOC_CLASSES = ('person')
 
 # note: if you used our download scripts, this should be right
 #VOC_ROOT = osp.join(HOME, "data/VOCdevkit/")
-VOC_ROOT = "/kaggle/input/caltechpedestrian/VOCdevkit"
+VOC_ROOT = "/kaggle/input/caltechpedestrian2/VOCdevkit"
 #VOC_ROOT = "/mnt/Younggao/VOCdevkit/"
 
 

@@ -10,7 +10,7 @@ import numpy as np
 
 #COCO_ROOT = osp.join(HOME, 'data/coco/')
 #COCO_ROOT = "/mnt/Younggao/coco/"
-COCO_ROOT = "/kaggle/input/CaltechPedestrian/coco"
+COCO_ROOT = "/kaggle/input/CaltechPedestrian2/coco"
 IMAGES = 'images'
 ANNOTATIONS = 'annotations'
 COCO_API = 'PythonAPI'
