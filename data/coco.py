@@ -36,7 +36,7 @@ def get_label_map(label_file):
     label_map = {}
     #labels = open(label_file, 'r')
     #labels = open("/mnt/Younggao/Caltech_DataDetection/data/coco_labels.txt", 'r')
-    labels = open("/kaggle/working/Caltech_Pedestrian/data/coco_labels.txt", 'r')
+    labels = open("/kaggle/working/Caltech_Pedestrian2/data/coco_labels.txt", 'r')
     for line in labels:
         ids = line.split(',')
         label_map[int(ids[0])] = int(ids[1])
