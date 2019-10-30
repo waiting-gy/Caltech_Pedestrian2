@@ -111,7 +111,7 @@ class VOCDetection(data.Dataset):
         self.ids = list()
         for (year, name) in image_sets:
             rootpath = osp.join(self.root, 'VOC' + year)
-            for line in open(osp.join(rootpath, 'ImageSets', 'Main', name + '.txt')):
+            for line in open(osp.join(rootpath, 'ImageSets', 'Main1', name + '.txt')):
                 self.ids.append((rootpath, line.strip()))
 
     def __getitem__(self, index):
