@@ -72,7 +72,7 @@ else:
 annopath = os.path.join(args.voc_root, 'VOC2007', 'Annotations', '%s.xml')
 imgpath = os.path.join(args.voc_root, 'VOC2007', 'JPEGImages', '%s.jpg')
 imgsetpath = os.path.join(args.voc_root, 'VOC2007', 'ImageSets',
-                          'Main', '{:s}.txt')
+                          'Main1', '{:s}.txt')
 YEAR = '2007'
 devkit_path = args.voc_root + 'VOC' + YEAR
 dataset_mean = (104, 117, 123)
@@ -111,14 +111,14 @@ def parse_rec(filename):
     for obj in tree.findall('object'):
         obj_struct = {}
         obj_struct['name'] = obj.find('name').text
-        obj_struct['pose'] = obj.find('pose').text
-        obj_struct['truncated'] = int(obj.find('truncated').text)
+        #obj_struct['pose'] = obj.find('pose').text
+        #obj_struct['truncated'] = int(obj.find('truncated').text)
         obj_struct['difficult'] = int(obj.find('difficult').text)
         bbox = obj.find('bndbox')
-        obj_struct['bbox'] = [int(bbox.find('xmin').text) - 1,
-                              int(bbox.find('ymin').text) - 1,
-                              int(bbox.find('xmax').text) - 1,
-                              int(bbox.find('ymax').text) - 1]
+        obj_struct['bbox'] = [int(float(bbox.find('xmin')).text) - 1,
+                              int(float(bbox.find('ymin')).text) - 1,
+                              int(float(bbox.find('xmax')).text) - 1,
+                              int(float(bbox.find('ymax')).text) - 1]
         objects.append(obj_struct)
 
     return objects
@@ -139,6 +139,7 @@ def get_output_dir(name, phase):
 def get_voc_results_file_template(image_set, cls):
     # VOCdevkit/VOC2007/results/det_test_aeroplane.txt
     filename = 'det_' + image_set + '_%s.txt' % (cls)
+    devkit_path1 = '/kaggle/working/'
     filedir = os.path.join(devkit_path, 'results')
     if not os.path.exists(filedir):
         os.makedirs(filedir)
