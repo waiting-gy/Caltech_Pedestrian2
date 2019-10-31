@@ -139,7 +139,7 @@ def get_output_dir(name, phase):
 def get_voc_results_file_template(image_set, cls):
     # VOCdevkit/VOC2007/results/det_test_aeroplane.txt
     filename = 'det_' + image_set + '_%s.txt' % (cls)
-    devkit_path1 = '/kaggle/working/'
+    devkit_path1 = '/kaggle/working/output/'
     filedir = os.path.join(devkit_path, 'results')
     if not os.path.exists(filedir):
         os.makedirs(filedir)
@@ -165,6 +165,7 @@ def write_voc_results_file(all_boxes, dataset):
 
 
 def do_python_eval(output_dir='output', use_07=True):
+    devkit_path2 = '/kaggle/working/output/'
     cachedir = os.path.join(devkit_path, 'annotations_cache')
     aps = []
     # The PASCAL VOC metric changed in 2010
@@ -379,7 +380,7 @@ def test_net(save_folder, net, cuda, dataset, transform, top_k,
     # timers
     _t = {'im_detect': Timer(), 'misc': Timer()}
     #output_dir = get_output_dir('ssd300_120000', set_type)
-    output_dir = get_output_dir('ssd300_Caltech', set_type)
+    output_dir = get_output_dir('/kaggle/working/output/ssd300_Caltech', set_type)
     det_file = os.path.join(output_dir, 'detections.pkl')
 
     for i in range(num_images):
